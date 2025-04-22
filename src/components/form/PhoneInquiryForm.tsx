@@ -17,7 +17,6 @@ interface PhoneInquiryFormProps {
 }
 
 const defaultValues = {
-  inquiryDate: new Date().toISOString().split('T')[0],
   lastName: '',
   firstName: '',
   aliasName: '',
@@ -52,6 +51,17 @@ const PhoneInquiryForm: React.FC<PhoneInquiryFormProps> = ({ onSubmit }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 8;
 
+  const formSections = [
+    { component: PersonalInformationSection },
+    { component: LanguageSection },
+    { component: ResidenceStatusSection },
+    { component: AsylumProcedureSection },
+    { component: EmploymentSection },
+    { component: MaritalStatusSection },
+    { component: ChildrenInformationSection },
+    { component: SupportNeedsSection },
+  ];
+
   const methods = useForm({
     defaultValues,
     mode: 'onBlur',
@@ -75,26 +85,8 @@ const PhoneInquiryForm: React.FC<PhoneInquiryFormProps> = ({ onSubmit }) => {
   };
 
   const renderCurrentStep = () => {
-    switch (currentStep) {
-      case 1:
-        return <PersonalInformationSection />;
-      case 2:
-        return <LanguageSection />;
-      case 3:
-        return <ResidenceStatusSection />;
-      case 4:
-        return <AsylumProcedureSection />;
-      case 5:
-        return <EmploymentSection />;
-      case 6:
-        return <MaritalStatusSection />;
-      case 7:
-        return <ChildrenInformationSection />;
-      case 8:
-        return <SupportNeedsSection />;
-      default:
-        return null;
-    }
+    const CurrentSection = formSections[currentStep - 1]?.component;
+    return CurrentSection ? <CurrentSection /> : null;
   };
 
   return (
