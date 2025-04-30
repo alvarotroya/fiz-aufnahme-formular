@@ -74,10 +74,10 @@ body {
 .conditional-section .form-input,
 .conditional-section .form-select,
 .conditional-section textarea {
-  width: 100% !important;
+  width: 98% !important;
   min-width: 0;
   box-sizing: border-box;
-  max-width: 100%;
+  max-width: 98%;
   overflow-x: auto;
 }
 

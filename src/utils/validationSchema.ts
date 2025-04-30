@@ -44,41 +44,44 @@ export const phoneInquiryValidationSchema = yup.object({
   asylumProcedureDetails: yup.string(),
 
   // Marital Status
-  maritalStatus: yup.string().required('Marital status is required'),
-  isMarried: yup.boolean(),
+  isMarried: yup.string().required('Please specify your married status'),
   marriedSince: yup.string().when('isMarried', {
-    is: true,
+    is: 'yes',
     then: (schema) => schema.required('Please specify when you got married'),
   }),
   partnerResidenceStatus: yup.string().when('isMarried', {
-    is: true,
+    is: 'yes',
     then: (schema) =>
       schema.required("Please specify partner's residence status"),
   }),
 
   // Children Information
-  hasChildrenInGermany: yup.boolean(),
+  hasChildrenInGermany: yup
+    .string()
+    .oneOf(['yes', 'no'], 'Please select a valid option')
+    .required('Please specify if you have children in Germany'),
   numberOfChildren: yup.number().when('hasChildrenInGermany', {
-    is: true,
+    is: 'yes',
     then: (schema) =>
       schema
         .required('Please specify number of children')
         .min(1, 'Number must be at least 1'),
   }),
   childrenAges: yup.string().when('hasChildrenInGermany', {
-    is: true,
+    is: 'yes',
     then: (schema) => schema.required('Please specify ages of children'),
   }),
   childrenResidenceStatus: yup.string().when('hasChildrenInGermany', {
-    is: true,
+    is: 'yes',
     then: (schema) =>
       schema.required("Please specify children's residence status"),
   }),
-
   // Employment
-  isWorking: yup.boolean(),
+  isWorking: yup
+    .string()
+    .required('Please select if you are currently working'),
   workingHours: yup.string().when('isWorking', {
-    is: true,
+    is: 'yes',
     then: (schema) => schema.required('Please specify working hours'),
   }),
 });

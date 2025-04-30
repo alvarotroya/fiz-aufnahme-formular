@@ -29,6 +29,10 @@ const FormNavigation: React.FC<FormNavigationProps> = ({
           </button>
         )}
 
+        <div className="step-indicator">
+          Step {currentStep} of {totalSteps}
+        </div>
+
         {currentStep < totalSteps ? (
           <button
             type="button"
@@ -46,10 +50,6 @@ const FormNavigation: React.FC<FormNavigationProps> = ({
             Submit
           </button>
         )}
-      </div>
-
-      <div className="step-indicator">
-        Step {currentStep} of {totalSteps}
       </div>
     </div>
   );
