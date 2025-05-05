@@ -20,7 +20,6 @@ body {
   padding: 0;
 }
 
-/* Form container */
 .phone-inquiry-form {
   max-width: 800px;
   margin: 2rem auto;
@@ -37,11 +36,9 @@ body {
   font-weight: 600;
 }
 
-/* Form sections */
 .form-section {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .form-section h2 {
@@ -81,7 +78,6 @@ body {
   overflow-x: auto;
 }
 
-/* Form fields */
 .form-field {
   margin-bottom: 1rem;
   width: 100%;
@@ -104,13 +100,12 @@ body {
   transition: border-color 0.3s;
 }
 
-.form-input:focus,
-.form-select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+.form-input::placeholder,
+.form-select::placeholder,
+textarea::placeholder {
+  color: #999;
+  opacity: 1;
 }
-
 .input-error {
   border-color: var(--error-color);
 }
@@ -127,7 +122,6 @@ body {
   margin-left: 0.25rem;
 }
 
-/* Checkbox and radio styles */
 .checkbox-field,
 .radio-group {
   margin-bottom: 1rem;
@@ -157,7 +151,6 @@ body {
   width: 100%;
 }
 
-/* Form actions */
 .form-actions {
   display: flex;
   justify-content: center;

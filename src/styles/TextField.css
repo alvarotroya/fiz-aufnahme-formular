@@ -11,6 +11,21 @@
   background-color: #fff;
 }
 
+.form-input-wrapper--textarea {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-input-wrapper--textarea .form-label-inline {
+  margin-bottom: 8px;
+}
+
+.form-input-wrapper--textarea .form-input {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+}
+
 .form-label-inline {
   flex: 1;
   font-size: 1rem;

@@ -54,6 +54,10 @@ export const phoneInquiryValidationSchema = yup.object({
     then: (schema) =>
       schema.required("Please specify partner's residence status"),
   }),
+  maritalStatus: yup.string().when('isMarried', {
+    is: 'yes',
+    then: (schema) => schema.required('Please specify your marital status'),
+  }),
 
   // Children Information
   hasChildrenInGermany: yup

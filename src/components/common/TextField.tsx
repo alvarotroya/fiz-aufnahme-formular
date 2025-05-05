@@ -26,7 +26,9 @@ const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <div className="form-field">
-      <div className="form-input-wrapper">
+      <div
+        className={`form-input-wrapper ${type === 'textarea' ? 'form-input-wrapper--textarea' : ''}`}
+      >
         <span className="form-label-inline">
           {label} {required && <span className="required">*</span>}
         </span>

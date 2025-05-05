@@ -45,6 +45,7 @@ const MaritalStatusSection: React.FC = () => {
             <TextField
               name="marriedSince"
               label="Married Since"
+              required
               placeholder="When did you get married?"
             />
           </div>
@@ -53,6 +54,7 @@ const MaritalStatusSection: React.FC = () => {
             <TextField
               name="partnerResidenceStatus"
               label="Partner's Residence Status"
+              required
               placeholder="Enter partner's residence status"
             />
           </div>

@@ -16,6 +16,7 @@
 }
 
 .navigation-buttons {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,10 +93,12 @@
 }
 
 .step-indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 0.95rem;
   font-weight: 500;
   color: #495057;
-  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -124,6 +127,12 @@
   stroke-width: 2;
   stroke: currentColor;
   fill: none;
+}
+.placeholder {
+  min-width: 130px;
+  padding: 0.8rem 1.75rem;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media (max-width: 576px) {
