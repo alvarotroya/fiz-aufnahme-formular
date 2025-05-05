@@ -38,23 +38,6 @@ const SupportNeedsSection: React.FC = () => {
       <h2>Support Needs</h2>
 
       <div className="form-row">
-        <TextField
-          name="specificSupportNeeds"
-          label="Specific Support Needs"
-          required
-          placeholder="Please specify concrete concerns"
-          type="textarea"
-        />
-      </div>
-
-      <div className="form-row">
-        <CheckboxField
-          name="acuteThreatSituation"
-          label="Acute Threat Situation"
-        />
-      </div>
-
-      <div className="form-row">
         <CheckboxGroup
           name="supportTypes"
           label="Women-specific Issues"
@@ -72,6 +55,24 @@ const SupportNeedsSection: React.FC = () => {
           />
         </div>
       )}
+
+      <div className="form-row">
+        <TextField
+          name="specificSupportNeeds"
+          label="Specific Support Needs"
+          required
+          placeholder="Please specify concrete concerns"
+          type="textarea"
+          className="text-align-left"
+        />
+      </div>
+
+      <div className="form-row">
+        <CheckboxField
+          name="acuteThreatSituation"
+          label="Acute Threat Situation"
+        />
+      </div>
     </div>
   );
 };

@@ -31,6 +31,7 @@ const AsylumProcedureSection: React.FC = () => {
           label="Additional Details"
           placeholder="Enter additional details about asylum procedure"
           type="textarea"
+          className="text-align-left"
         />
       </div>
     </div>

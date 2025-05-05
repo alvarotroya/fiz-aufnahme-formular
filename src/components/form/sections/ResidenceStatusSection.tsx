@@ -27,6 +27,14 @@ const ResidenceStatusSection: React.FC = () => {
       <h2>Residence Status</h2>
 
       <div className="form-row">
+        <TextField
+          name="timeInGermany"
+          label="Time in Germany"
+          required
+          placeholder="How long in Germany?"
+        />
+      </div>
+      <div className="form-row">
         <SelectField
           name="residenceStatus"
           label="Residence Status (What visa are you here with?)"
