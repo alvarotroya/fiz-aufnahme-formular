@@ -50,15 +50,6 @@ const PersonalInformationSection: React.FC = () => {
 
       <div className="form-row">
         <TextField
-          name="timeInGermany"
-          label="Time in Germany"
-          required
-          placeholder="How long in Germany?"
-        />
-      </div>
-
-      <div className="form-row">
-        <TextField
           name="nationality"
           label="Nationality"
           required

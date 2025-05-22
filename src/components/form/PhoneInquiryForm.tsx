@@ -36,14 +36,14 @@ const defaultValues = {
   asylumProcedureStatus: '',
   asylumProcedureDetails: '',
   maritalStatus: '',
-  isMarried: false,
+  isMarried: '',
   marriedSince: '',
   partnerResidenceStatus: '',
   hasChildrenInGermany: false,
   numberOfChildren: 0,
   childrenAges: '',
   childrenResidenceStatus: '',
-  isWorking: false,
+  isWorking: '',
   workingHours: '',
 };
 
@@ -51,15 +51,64 @@ const PhoneInquiryForm: React.FC<PhoneInquiryFormProps> = ({ onSubmit }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 8;
 
-  const formSections = [
-    { component: PersonalInformationSection },
-    { component: LanguageSection },
-    { component: ResidenceStatusSection },
-    { component: AsylumProcedureSection },
-    { component: EmploymentSection },
-    { component: MaritalStatusSection },
-    { component: ChildrenInformationSection },
-    { component: SupportNeedsSection },
+  const formSections: {
+    component: React.FC;
+    fields: (keyof typeof defaultValues)[];
+  }[] = [
+    {
+      component: PersonalInformationSection,
+      fields: [
+        'lastName',
+        'firstName',
+        'aliasName',
+        'placeOfResidence',
+        'phoneNumber',
+        'nationality',
+      ],
+    },
+    {
+      component: LanguageSection,
+      fields: ['languages', 'preferredLanguage', 'otherLanguage'],
+    },
+    {
+      component: ResidenceStatusSection,
+      fields: ['residenceStatus', 'visaType', 'timeInGermany'],
+    },
+    {
+      component: AsylumProcedureSection,
+      fields: ['asylumProcedureStatus', 'asylumProcedureDetails'],
+    },
+    {
+      component: EmploymentSection,
+      fields: ['isWorking', 'workingHours'],
+    },
+    {
+      component: MaritalStatusSection,
+      fields: [
+        'isMarried',
+        'maritalStatus',
+        'marriedSince',
+        'partnerResidenceStatus',
+      ],
+    },
+    {
+      component: ChildrenInformationSection,
+      fields: [
+        'hasChildrenInGermany',
+        'numberOfChildren',
+        'childrenAges',
+        'childrenResidenceStatus',
+      ],
+    },
+    {
+      component: SupportNeedsSection,
+      fields: [
+        'specificSupportNeeds',
+        'acuteThreatSituation',
+        'supportTypes',
+        'otherSupportType',
+      ],
+    },
   ];
 
   const methods = useForm({
@@ -72,8 +121,19 @@ const PhoneInquiryForm: React.FC<PhoneInquiryFormProps> = ({ onSubmit }) => {
     onSubmit(data);
   });
 
-  const handleNext = () => {
-    if (currentStep < totalSteps) {
+  const handleNext = async () => {
+    const currentFields = formSections[currentStep - 1]?.fields;
+
+    if (!currentFields) {
+      console.error('No fields found for the current step');
+      return;
+    }
+
+    const isValid = await methods.trigger(currentFields);
+    console.log('Validation result:', isValid);
+    console.log('Errors:', methods.formState.errors);
+
+    if (isValid && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     }
   };

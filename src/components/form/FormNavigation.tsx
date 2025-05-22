@@ -19,7 +19,7 @@ const FormNavigation: React.FC<FormNavigationProps> = ({
   return (
     <div className="form-navigation">
       <div className="navigation-buttons">
-        {currentStep > 1 && (
+        {currentStep > 1 ? (
           <button
             type="button"
             className="navigation-button previous-button"
@@ -27,7 +27,13 @@ const FormNavigation: React.FC<FormNavigationProps> = ({
           >
             Previous
           </button>
+        ) : (
+          <div className="navigation-button placeholder" />
         )}
+
+        <div className="step-indicator">
+          Step {currentStep} of {totalSteps}
+        </div>
 
         {currentStep < totalSteps ? (
           <button
@@ -46,10 +52,6 @@ const FormNavigation: React.FC<FormNavigationProps> = ({
             Submit
           </button>
         )}
-      </div>
-
-      <div className="step-indicator">
-        Step {currentStep} of {totalSteps}
       </div>
     </div>
   );
