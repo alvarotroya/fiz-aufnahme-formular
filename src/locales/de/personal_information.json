@@ -1,0 +1,15 @@
+{
+  "title": "Persönliche Informationen",
+  "firstNameLabel": "Vorname",
+  "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+  "lastNameLabel": "Nachname",
+  "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+  "aliasLabel": "Alias",
+  "aliasPlaceholder": "Geben Sie Ihren Alias ein, falls zutreffend",
+  "placeOfResidenceLabel": "Wohnort",
+  "placeOfResidencePlaceholder": "Geben Sie Ihren Wohnort ein",
+  "phoneNumberLabel": "Telefonnummer",
+  "phoneNumberPlaceholder": "Geben Sie Ihre Telefonnummer ein",
+  "nationalityLabel": "Staatsangehörigkeit",
+  "nationalityPlaceholder": "Geben Sie Ihre Staatsangehörigkeit ein"
+}
