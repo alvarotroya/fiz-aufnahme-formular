@@ -1,59 +1,62 @@
 import React from 'react';
 import TextField from '../../common/TextField';
+import { useTranslation } from 'react-i18next';
 
 const PersonalInformationSection: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="form-section">
-      <h2>Personal Information</h2>
+      <h2>{t('title')}</h2>
 
       <div className="form-row">
         <TextField
           name="lastName"
-          label="Last Name"
+          label={t('lastNameLabel')}
           required
-          placeholder="Enter last name"
+          placeholder={t('lastNamePlaceholder')}
         />
         <TextField
           name="firstName"
-          label="First Name"
+          label={t('firstNameLabel')}
           required
-          placeholder="Enter first name"
+          placeholder={t('firstNamePlaceholder')}
         />
       </div>
 
       <div className="form-row">
         <TextField
           name="aliasName"
-          label="Alias Name/Anonymous"
-          placeholder="Enter alias name if applicable"
+          label={t('aliasLabel')}
+          placeholder={t('aliasPlaceholder')}
         />
       </div>
 
       <div className="form-row">
         <TextField
           name="placeOfResidence"
-          label="Place of Residence"
+          label={t('placeOfResidenceLabel')}
           required
-          placeholder="Enter place of residence"
+          placeholder={t('placeOfResidencePlaceholder')}
         />
       </div>
 
       <div className="form-row">
         <TextField
           name="phoneNumber"
-          label="Phone Number"
+          label={t('phoneNumberLabel')}
           type="tel"
           required
-          placeholder="Enter phone number"
+          placeholder={t('phoneNumberPlaceholder')}
         />
       </div>
 
       <div className="form-row">
         <TextField
           name="nationality"
-          label="Nationality"
+          label={t('nationalityLabel')}
           required
-          placeholder="Enter nationality"
+          placeholder={t('nationalityPlaceholder')}
         />
       </div>
     </div>

@@ -1,0 +1,15 @@
+{
+  "title": "Personal Information",
+  "firstNameLabel": "First Name",
+  "firstNamePlaceholder": "Enter your first name",
+  "lastNameLabel": "Last Name",
+  "lastNamePlaceholder": "Enter your last name",
+  "aliasLabel": "Alias",
+  "aliasPlaceholder": "Enter your alias if applicable",
+  "placeOfResidenceLabel": "Place of Residence",
+  "placeOfResidencePlaceholder": "Enter your place of residence",
+  "phoneNumberLabel": "Phone Number",
+  "phoneNumberPlaceholder": "Enter your phone number",
+  "nationalityLabel": "Nationality",
+  "nationalityPlaceholder": "Enter your nationality"
+}
